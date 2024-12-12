@@ -17,6 +17,7 @@ namespace Evening.Domain.Entities
         [Range(10, 1000)]
         public double Price { get; set; }
         public int Sqft {  get; set; }
+        [Range(1, 10)]
         public int Occupancy {  get; set; }
         [Display(Name ="Image Url")]
         public string? ImageUrl {  get; set; }
