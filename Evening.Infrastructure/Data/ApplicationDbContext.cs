@@ -10,10 +10,11 @@ namespace Evening.Infrastructure.Data
 {
     public class ApplicationDbContext : DbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext>options) 
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options) {
         }
         public DbSet<Villa> Villas { get; set; }
+        public DbSet<VillaNumber> VillasNumbers { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //base.OnModelCreating(modelBuilder);
@@ -63,7 +64,7 @@ namespace Evening.Infrastructure.Data
               },
               new Villa
               {
-                  Id = 5,
+                    Id = 5,
                   Name = "Diamond Pool Villa",
                   Description = "Fusce 11 tincidunt maximus leo, sed scelerisque massa auctor sit amet. Donec ex mauris, hendrerit quis nibh ac, efficitur fringilla enim.",
                   ImageUrl = "https://placehold.co/600x400",
@@ -71,6 +72,39 @@ namespace Evening.Infrastructure.Data
                   Price = 600,
                   Sqft = 1100,
               });
+            modelBuilder.Entity<VillaNumber>().HasData(
+                new VillaNumber
+                {
+                    Villa_Number = 101,
+                    VillaId = 1,
+                },
+                 new VillaNumber
+                 {
+                     Villa_Number = 201,
+                     VillaId = 2,
+                 },
+                  new VillaNumber
+                  {
+                      Villa_Number = 301,
+                      VillaId = 3,
+                  },
+                   new VillaNumber
+                   {
+                       Villa_Number = 401,
+                       VillaId = 4,
+                   },
+                    new VillaNumber
+                    {
+                        Villa_Number = 501,
+                        VillaId = 5,
+                    },
+                     new VillaNumber
+                     {
+                         Villa_Number = 102,
+                         VillaId = 1,
+                     }
+
+                );
         }
     }
 }
